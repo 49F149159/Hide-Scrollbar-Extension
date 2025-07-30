@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hidden Scrollbar</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      width: 200px; /* Tăng chiều rộng một chút để có không gian */
+      padding: 15px 10px; /* Padding trên/dưới và trái/phải */
+      text-align: center;
+      background-color: rgba(30, 30, 30, 0.95); /* Nền tối và hơi trong suốt */
+      border-radius: 8px; /* Bo tròn vừa phải */
+      box-shadow: none; /* Không có bóng đổ */
+      color: #e0e0e0; /* Màu chữ sáng */
+      margin: 0;
+      display: flex; /* Dùng flexbox để căn giữa các item */
+      flex-direction: column; /* Xếp theo cột */
+      align-items: center; /* Căn giữa theo chiều ngang */
+      justify-content: center; /* Căn giữa theo chiều dọc nếu có đủ không gian */
+    }
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Đảm bảo căn giữa cho nội dung bên trong */
+      margin-bottom: 15px; /* Khoảng cách từ toggle đến status */
+      width: 100%; /* Đảm bảo chiếm đủ chiều rộng để justify-content hoạt động */
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px; /* Chiều rộng switch chuẩn hơn */
+      height: 28px; /* Chiều cao switch chuẩn hơn */
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #555;
+      transition: .4s;
+      border-radius: 28px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px; /* Kích thước nút tròn */
+      width: 20px; /* Kích thước nút tròn */
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #4CAF50;
+    }
+    input:focus + .slider {
+      box-shadow: 0 0 1px #4CAF50;
+    }
+    input:checked + .slider:before {
+      transform: translateX(22px);
+    }
+    .status {
+      margin-top: 0; /* Đã có margin-bottom từ toggle-container */
+      margin-bottom: 15px; /* Khoảng cách từ status đến credit */
+      font-weight: bold;
+      font-size: 1.1em; /* Kích thước chữ chuẩn hơn */
+      color: #e0e0e0;
+    }
+    .status.hidden {
+      color: #ff6b6b;
+    }
+    .status.visible {
+      color: #6eff6e;
+    }
+    label {
+      margin-right: 10px; /* Khoảng cách giữa label và switch */
+      font-size: 16px; /* Kích thước chữ chuẩn hơn */
+      color: #e0e0e0;
+      flex-shrink: 0; /* Ngăn label co lại */
+    }
+    .credit {
+      margin-top: 0; /* Đã có margin-bottom từ status */
+      font-size: 10px;
+      color: #888;
+      text-align: center;
+      width: 100%; /* Đảm bảo chiếm đủ chiều rộng để căn giữa */
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle-container">
+    <label for="toggleScroll">Hide Scrollbar:</label>
+    <label class="switch">
+      <input type="checkbox" id="toggleScroll">
+      <span class="slider round"></span>
+    </label>
+  </div>
+  <div class="status" id="status"></div>
+  <div class="credit">Made by Nguyen Minh Duy</div>
+  <script src="popup.js"></script>
+</body>
+</html>

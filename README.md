@@ -1,4 +1,4 @@
-# Ẩn Thanh Cuộn (Có Giao Diện) - Hide Scrollbar (With UI)
+# Ẩn Thanh Cuộn  - Hide Scrollbar
 
 ## Tiếng Việt
 

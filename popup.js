@@ -34,14 +34,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Cập nhật giao diện popup dựa trên trạng thái hiện tại của thanh cuộn
   function updateStatus(isHidden) {
-    if (isHidden) {
-      statusDiv.textContent = 'Hidden (Scrollable)';
-      statusDiv.className = 'status hidden';
-    } else {
-      statusDiv.textContent = 'Visible';
-      statusDiv.className = 'status visible';
-    }
+  if (isHidden) {
+    statusDiv.textContent = 'Hidden';
+    statusDiv.className = 'status hidden shake';
+  } else {
+    statusDiv.textContent = 'Visible';
+    statusDiv.className = 'status visible shake';
   }
+
+  // Xóa class shake sau 400ms để lần sau còn chạy lại
+  setTimeout(() => {
+    statusDiv.classList.remove('shake');
+  }, 400);
+}
+
 
   // Lấy trạng thái ban đầu của thanh cuộn khi popup mở
   sendMessageToContentScript("getScrollbarStatus", (isHidden) => {

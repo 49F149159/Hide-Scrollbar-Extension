@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Ẩn Thanh Cuộn (Có Giao Diện)",
+  "name": "Hide Scrollbar",
   "version": "1.0",
-  "description": "Tự động ẩn thanh cuộn trên hầu hết các trang web để có giao diện sạch sẽ hơn, với nút bật/tắt tiện lợi.",
+  "description": "Automatically hides the scrollbar on most websites for a cleaner interface, with a convenient toggle button.",
   "icons": {
     "48": "icons/icon48.png"
   },
